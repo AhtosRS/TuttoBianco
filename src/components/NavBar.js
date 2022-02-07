@@ -1,4 +1,5 @@
 import react from "react";
+import CartWidget from "./CartWidget";
 
 function Navigation() {
     return( <div className="navContainer">
@@ -13,7 +14,7 @@ function Navigation() {
                 <li className="item"><a href="#">Accesorios</a></li>
             </ul> 
         </div>
-        
+        <CartWidget />
     </div>
 
     )

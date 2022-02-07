@@ -12,13 +12,15 @@
 p {
   font-size: large;
   color: white;
-  margin-left: 25px;
+  margin: 5px 0 0 25px;
+  
 }
 
 a {
   text-decoration: none;
   color: white;
   margin-right: 20px;
+  
 }
 .list .item{
   display: inline;
@@ -28,3 +30,13 @@ li:hover a {
   color: black;
   background-color: white;
 }
+
+.carritoLogo {
+  width: 30px;
+}
+
+ul {
+  margin: 5px 20px 0 0;
+}
+
+
