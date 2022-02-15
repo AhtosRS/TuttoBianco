@@ -39,4 +39,22 @@ ul {
   margin: 5px 20px 0 0;
 }
 
+.counterContainer {
+  width: 154px;
+  height: auto;
+  background-color: rgb(243, 241, 239);
+}
+
+.controlContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 3px;
+}
+
+.controlContainer p{
+  color: black;
+  margin: 5px 0 0 0;
+}
+
 
