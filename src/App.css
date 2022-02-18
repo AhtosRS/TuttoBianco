@@ -58,3 +58,17 @@ ul {
 }
 
 
+.precios {
+  color: black;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagenes {
+  max-height: 200px;
+}
