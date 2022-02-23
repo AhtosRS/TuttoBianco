@@ -9,12 +9,15 @@ import ItemDetail from "./ItemDetail.js";
 function ItemDetailContainer() {
 
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true)
+    
 
     useEffect(() => {
         giveProducts
             .then((res) => {
                 setProducts(res);
             })
+            .then( () => setLoading(false))
             .catch((error) => {
                 console.log(error);
             })
@@ -24,7 +27,7 @@ function ItemDetailContainer() {
 
     return( 
         <div style={{width: "100%", height: "600px"}}>
-        <ItemDetail product={products[0]}/>
+        { !loading && <ItemDetail product={products[1]}/>}
         
         </div>
     )
