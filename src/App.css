@@ -62,6 +62,10 @@ ul {
   color: black;
 }
 
+.description {
+  color: black;
+}
+
 .itemsContainer {
   display: flex;
   flex-direction: row;
@@ -72,3 +76,30 @@ ul {
 .imagenes {
   max-height: 200px;
 }
+
+.itemDetail {
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border: 2px solid black;
+}
+
+.imagenesDetail {
+  width: 30%;
+  height: auto;
+}
+
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+  height: 70%;
+}
+
+
