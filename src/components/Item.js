@@ -1,20 +1,30 @@
 import react from "react";
 import ItemCount from "./ItemCount.js";
+import { Link } from "react-router-dom";
 
-function Item({id, title, price, pictureUrl}) {
+function Item({id, title, price, imgURL}) {
    
-    console.log(id);
+    
 
     return( 
         
-    <div class="card" Style="width: 12rem;">
-        <img src={pictureUrl} className="card-img-top imagenes" alt="..."></img>
-        <div class="card-body">
-        <h5 class="card-title">{title}</h5>
-        <p class="card-text precios">${price}.-</p>
-        <ItemCount stock="5" initial="1"/>
+    
+        <div class="card" Style="width: 13rem;">
+
+            <Link to={`/item/${id}`}>
+                <div className="imgCenterContainer">
+                  <img src={imgURL} className="card-img-top imagenes" alt="..."></img>  
+                </div>
+                
+            </Link>
+
+            <div class="card-body">
+                <h5 class="card-title">{title}</h5>
+                <p class="card-text precios">${price}.-</p>
+                <ItemCount stock="5" initial="1"/>
+            </div>
         </div>
-    </div>
+    
 
     )
 }

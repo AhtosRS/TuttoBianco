@@ -3,15 +3,11 @@ import ItemCount from "./ItemCount.js";
 import Item from "./Item.js";
 import { giveProducts } from './products.js';
 import ItemList from "./ItemList.js";
-import { useParams } from "react-router-dom";
 
 
-function ItemListContainer() {
+function Home() {
 
     const [products, setProducts] = useState([]);
-    let {category} = useParams();
-
-    const categoria = products.filter( y => y.category == category);
 
     
 
@@ -27,10 +23,10 @@ function ItemListContainer() {
 
     return( 
         <div style={{width: "100%", height: "auto"}}>
-        <ItemList products={categoria}/>
+        <ItemList products={products}/>
             
         </div>
     )
 }
 
-export default ItemListContainer;
+export default Home;
