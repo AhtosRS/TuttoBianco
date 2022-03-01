@@ -1,4 +1,4 @@
-import react from "react";
+import react, {useState} from "react";
 import ItemCount from "./ItemCount.js";
 
 function ItemDetail({product}) {
@@ -7,7 +7,7 @@ function ItemDetail({product}) {
 
     // const testProduct =  product[0];
 
-    
+    const [selectedQuantity, setQuantity] = useState([]);
 
     return(
 
@@ -20,7 +20,7 @@ function ItemDetail({product}) {
                 <p className="precios">${product.price}.-</p>
                 <p className="description">{product.description}</p>
 
-                <ItemCount stock="5" initial="1"/>
+                <ItemCount stock="5" initial="1" setQuantity={setQuantity}/>
                 
             </div>
 

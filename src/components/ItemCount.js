@@ -1,7 +1,8 @@
 import react, { useState } from "react";
 
-function ItemCount({stock, initial, onAdd}) {
+function ItemCount({stock, initial, onAdd, setQuantity}) {
     initial = parseInt(initial);
+    
     const [contador, setContador] = useState(initial);
     
 
@@ -17,7 +18,9 @@ function ItemCount({stock, initial, onAdd}) {
     }
 
     function onAdd() {
-        alert("agregado al carrito");
+        // selected = contador;
+        setQuantity(contador);
+        
     }
 
     return( 

@@ -40,9 +40,11 @@ ul {
 }
 
 .counterContainer {
+  margin: 10px;
   width: 154px;
   height: auto;
   background-color: rgb(243, 241, 239);
+  
 }
 
 .controlContainer {
@@ -81,10 +83,16 @@ ul {
 }
 
 .imagenes {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-height: 200px;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .itemDetail {
@@ -116,6 +124,25 @@ ul {
   background-color: rgba(0, 0, 0, 0.658);
 }
 
-.imgCenterContainer{
-  
+#errorboostrap{
+  z-index: 6;
 }
+
+.modal-backdrop {
+  z-index: 5;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-text {
+  margin: 0;
+  padding: 0;
+}
+
+.imgCenterContainer {
+    height: 200px;
+    width: 206px;
+    position: relative;
+} 
