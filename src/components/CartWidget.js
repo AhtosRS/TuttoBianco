@@ -7,8 +7,6 @@ function CartWidget() {
   <div className="alternador">
 
     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      {/* <span className="navbar-toggler-icon"></span> */}
-      {/* <img className="carritoLogo" src="../imgs/carrito.png"></img> */}
       <img src={widget} className="carritoLogo" alt="..."></img>
     </button>
     <div className="offcanvas offcanvas-end" id="errorboostrap" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -18,9 +16,11 @@ function CartWidget() {
       </div>
       <div className="offcanvas-body">
         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+          {/* agregar aca el cart.js------------------------*/}
           <li className="nav-item">
             <a className="nav-link active" aria-current="page" href="#">productos x</a>
           </li>
+
           <li className="nav-item">
             <a className="nav-link" href="#">productos y</a>
           </li>
