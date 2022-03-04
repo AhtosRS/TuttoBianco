@@ -10,21 +10,26 @@ const CartProvider =({children}) => {
     const [cartItems, setCartItem] = useState([]);
 
     function checkCurrentCart(product) {  
-        if (cartItems === undefined || cartItems.find(elemento => elemento.id === product.id)) {
+        if (cartItems === undefined) {
+            console.log(`carrito vacio`)
+            return true;
+        }
+        else if (cartItems.find(elemento => elemento.id === product.id)) {
 
-            console.log(`${product.title} ya esta en el carro`);
+            console.log(` ya esta en el carro o no`);
             return false;
         }
         else {
-            console.log(`${product.title} no esta en la bolsa`)
+            console.log(`no esta en la bolsa`)
             return true;
         }
     } 
 
     function addToCart(product){
-        // cartItems.push(producto);
+        // cartItems.push(product);
         setCartItem(cartItems.push(product));
-        console.log(`${product.title} agregado`)
+        console.log(`agregado`)
+        console.log(cartItems)
     }
 
     function removeFromCart(product){

@@ -5,6 +5,8 @@ import CartContext from './CartContext.js'
 function Cart() {
 
     const {cartItems} = useContext(CartContext);
+    
+    
 
     return(   
         <>
