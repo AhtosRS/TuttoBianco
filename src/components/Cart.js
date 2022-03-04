@@ -1,12 +1,10 @@
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import ItemCount from "./ItemCount.js";
 import CartContext from './CartContext.js'
 
 function Cart() {
 
     const {cartItems} = useContext(CartContext);
-    
-    
 
     return(   
         <>
