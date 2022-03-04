@@ -1,4 +1,5 @@
 import react from "react";
+import { CartProvider } from "./CartContext";
 import Item from './Item';
 
 function ItemList({products}) {

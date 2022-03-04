@@ -1,21 +1,21 @@
-import react from "react";
+import {useContext} from "react";
 import ItemCount from "./ItemCount.js";
-import { useCartContext } from '../CartContext'
+import CartContext from './CartContext.js'
 
 function Cart() {
 
-    const {cartItems} = useCartContext();
+    const {cartItems} = useContext(CartContext);
 
-    return( 
+    return(   
         <>
-        {cartItems.length === 0 ? (<p>Carrito vacio</p>) : (cartItems.map((producto) => {
+        {cartItems.length === 0 ? (<p style={{color: "black"}}>Carrito vacio</p>) : (cartItems.map((product) => {
           return (
             <>
                 <div>
-                    <img src={producto.thumbnail} style={{ width: 50 }} />
+                    <img src={product.imgURL} style={{ width: 50, height: 50}} />
 
                     <div>
-                        {producto.title} x {producto.amount} = ${producto.amount * producto.price}
+                        {product.title} x {product.amount} = ${product.amount * product.price}
                     </div>
                 </div>
             </>

@@ -1,32 +1,47 @@
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 
 
-// const CartContext = React.createContext();
+const CartContext = React.createContext();
 
-export default function useCartContext({defaultValue = [], children}) {
+
+
+const CartProvider =({children}) => {
 
     const [cartItems, setCartItem] = useState([]);
-    
-    function checkCurrentCart(cartItems, id) {
-        if (cartItems.find(producto => producto.id === id)) {
 
-            console.log(`${producto.title} ya esta en el carro`);
+    function checkCurrentCart(product) {  
+        if (cartItems === undefined || cartItems.find(elemento => elemento.id === product.id)) {
+
+            console.log(`${product.title} ya esta en el carro`);
+            return false;
         }
         else {
-            cartItems.push()
+            console.log(`${product.title} no esta en la bolsa`)
+            return true;
         }
     } 
 
-
-
-
-    const addToCart = (item, amount) => {
-        if ()
+    function addToCart(product){
+        // cartItems.push(producto);
+        setCartItem(cartItems.push(product));
+        console.log(`${product.title} agregado`)
     }
+
+    function removeFromCart(product){
+        setCartItem(cartItems = cartItems.filter(function (item) {
+            return item !== product
+        }))
+    }
+
+    const cartSize = cartItems.length;
 
     
 
-    return <CartContext.Provider value={{cartItems, addToCart, isInCart, cartSize: cart.length}}>
+    return <CartContext.Provider value={{cartItems, checkCurrentCart, addToCart, removeFromCart, cartSize}}>
         {children}
     </CartContext.Provider>
 }
+
+export  {CartProvider};
+export default CartContext;
+

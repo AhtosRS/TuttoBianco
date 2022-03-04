@@ -5,6 +5,7 @@ import { giveProducts } from './products.js';
 import ItemList from "./ItemList.js";
 import ItemDetail from "./ItemDetail.js";
 import { useParams } from "react-router-dom";
+import { CartProvider } from "./CartContext.js";
 
 
 function ItemDetailContainer() {
@@ -15,7 +16,7 @@ function ItemDetailContainer() {
     
     
     const filtered = products.find( x => x.id == id);
-    console.log(filtered);
+    
 
     useEffect(() => {
         giveProducts
@@ -30,11 +31,12 @@ function ItemDetailContainer() {
 
     
 
-    return( 
+    return(
+        <CartProvider>
         <div style={{width: "100%", height: "600px"}}>
-        { !loading && <ItemDetail product={filtered}/>}
-        
+            { !loading && <ItemDetail product={filtered}/>}
         </div>
+        </CartProvider>
     )
 }
 
