@@ -5,7 +5,7 @@ import { CartProvider } from "./CartContext";
 
 function CartWidget() {
     return( 
-    <CartProvider>
+    
       <div className="alternador">
         
         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -38,7 +38,7 @@ function CartWidget() {
           </div>
         </div>
       </div>
-    </CartProvider>
+    
     )
 }
 

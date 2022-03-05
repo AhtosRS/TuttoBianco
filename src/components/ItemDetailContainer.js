@@ -32,11 +32,11 @@ function ItemDetailContainer() {
     
 
     return(
-        <CartProvider>
+        
         <div style={{width: "100%", height: "600px"}}>
             { !loading && <ItemDetail product={filtered}/>}
         </div>
-        </CartProvider>
+        
     )
 }
 

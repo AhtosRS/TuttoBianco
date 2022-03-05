@@ -1,29 +1,31 @@
 import {useContext, useEffect} from "react";
 import ItemCount from "./ItemCount.js";
 import CartContext from './CartContext.js'
+import { useState } from "react/cjs/react.production.min";
 
 function Cart() {
 
-    const {cartItems} = useContext(CartContext);
+  const {cartItems} = useContext(CartContext);
 
-    return(   
-        <>
-        {cartItems.length === 0 ? (<p style={{color: "black"}}>Carrito vacio</p>) : (cartItems.map((product) => {
-          return (
-            <>
-                <div>
-                    <img src={product.imgURL} style={{ width: 50, height: 50}} />
+  console.log(cartItems);
 
-                    <div>
-                        {product.title} x {product.amount} = ${product.amount * product.price}
-                    </div>
-                </div>
-            </>
-          );
-        })
-      )}
+  return(
+    
+    <>
+      {cartItems.length === 0 ? (<p style={{color: "black"}}>Carrito vacio</p>) :
+      (cartItems.map((products) => {
+        return(
+          <>
+          <div key={products.id}>
+               <img src={products.imgURL} style={{ width: 50, height: 50}} />
+               <div>
+                 {products.title} = ${products.price}
+               </div>
+          </div>
+          </>)}))}
     </>
-  )
+    )
+    
 }
 
 export default Cart;

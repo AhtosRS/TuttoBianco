@@ -2,12 +2,13 @@ import React, { useState, useContext } from "react";
 
 
 const CartContext = React.createContext();
-
+const cartItems = [];
 
 
 const CartProvider =({children}) => {
 
-    const [cartItems, setCartItem] = useState([]);
+    const cartSize = cartItems.length;
+    // const [cartItems, setCartItem] = useState([]);
 
     function checkCurrentCart(product) {  
         if (cartItems === undefined) {
@@ -16,7 +17,7 @@ const CartProvider =({children}) => {
         }
         else if (cartItems.find(elemento => elemento.id === product.id)) {
 
-            console.log(` ya esta en el carro o no`);
+            console.log(` ya esta en el carro`);
             return false;
         }
         else {
@@ -26,23 +27,23 @@ const CartProvider =({children}) => {
     } 
 
     function addToCart(product){
-        // cartItems.push(product);
-        setCartItem(cartItems.push(product));
+        cartItems.push(product);
         console.log(`agregado`)
         console.log(cartItems)
+        console.log(cartItems.length)
     }
 
-    function removeFromCart(product){
-        setCartItem(cartItems = cartItems.filter(function (item) {
-            return item !== product
-        }))
-    }
-
-    const cartSize = cartItems.length;
+    // function removeFromCart(product){
+    //     setCartItem(cartItems = cartItems.filter(function (item) {
+    //         return item !== product
+    //     }))
+    // }
 
     
 
-    return <CartContext.Provider value={{cartItems, checkCurrentCart, addToCart, removeFromCart, cartSize}}>
+    
+
+    return <CartContext.Provider value={{cartItems, checkCurrentCart, addToCart, cartSize}}>
         {children}
     </CartContext.Provider>
 }
