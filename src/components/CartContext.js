@@ -7,8 +7,9 @@ const cartItems = [];
 
 const CartProvider =({children}) => {
 
+    const [cartItems, setCartItem] = useState([]);
     const cartSize = cartItems.length;
-    // const [cartItems, setCartItem] = useState([]);
+    
 
     function checkCurrentCart(product) {  
         if (cartItems === undefined) {
@@ -27,7 +28,8 @@ const CartProvider =({children}) => {
     } 
 
     function addToCart(product){
-        cartItems.push(product);
+        setCartItem([...cartItems, product]);
+        // cartItems.push(product);
         console.log(`agregado`)
         console.log(cartItems)
         console.log(cartItems.length)
