@@ -146,3 +146,15 @@ ul {
     width: 206px;
     position: relative;
 } 
+
+.cartProductContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.binButton{
+  all: unset;
+  cursor: pointer;
+}

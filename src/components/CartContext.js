@@ -27,25 +27,24 @@ const CartProvider =({children}) => {
         }
     } 
 
-    function addToCart(product){
-        setCartItem([...cartItems, product]);
+    function addToCart(product, quantity){
+        setCartItem([...cartItems, {...product, quantity}]);
         // cartItems.push(product);
         console.log(`agregado`)
         console.log(cartItems)
-        console.log(cartItems.length)
+        console.log(quantity)
     }
 
-    // function removeFromCart(product){
-    //     setCartItem(cartItems = cartItems.filter(function (item) {
-    //         return item !== product
-    //     }))
-    // }
+    function removeFromCart(product, cartItems){
+        console.log("entra");
+        setCartItem(cartItems => cartItems.filter(elemento => elemento.id !== product.id));
+    }
 
     
 
     
 
-    return <CartContext.Provider value={{cartItems, checkCurrentCart, addToCart, cartSize}}>
+    return <CartContext.Provider value={{cartItems, checkCurrentCart, addToCart, cartSize, removeFromCart}}>
         {children}
     </CartContext.Provider>
 }
