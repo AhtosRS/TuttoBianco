@@ -40,11 +40,14 @@ const CartProvider =({children}) => {
         setCartItem(cartItems => cartItems.filter(elemento => elemento.id !== product.id));
     }
 
-    
+    function clearCart(){
+        console.log("cart Borrado");
+        setCartItem(cartItems => cartItems.splice(0, cartItems.length));
+    }
 
     
 
-    return <CartContext.Provider value={{cartItems, checkCurrentCart, addToCart, cartSize, removeFromCart}}>
+    return <CartContext.Provider value={{cartItems, checkCurrentCart, addToCart, cartSize, removeFromCart, clearCart}}>
         {children}
     </CartContext.Provider>
 }

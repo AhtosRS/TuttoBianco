@@ -18,23 +18,17 @@ function CartWidget() {
           </div>
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-              {/* agregar aca el cart.js------------------------*/}
         
               <Cart/>
-        
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">productos x</a>
-              </li>
-        
+
               {/* <li className="nav-item">
-                <a className="nav-link" href="#">productos y</a>
+                <a className="nav-link active" aria-current="page" href="#">productos x</a>
               </li> */}
+        
+              
               
             </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            
           </div>
         </div>
       </div>

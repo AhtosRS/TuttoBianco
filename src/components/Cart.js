@@ -6,7 +6,7 @@ import trashBin from '../imgs/bin.png';
 
 function Cart() {
 
-  const {cartItems, removeFromCart} = useContext(CartContext);
+  const {cartItems, removeFromCart, clearCart} = useContext(CartContext);
 
   console.log(cartItems);
 
@@ -33,7 +33,12 @@ function Cart() {
                <button className="binButton" onClick={() => deleteItem(products, cartItems)}><img src={trashBin} style={{ width: 20, height: 20}} /></button>
                </div>
           </div>
-          </>)}))}
+          
+        
+          
+
+        </>)}))}
+        {cartItems.length >= 2 ?<button type="button" className="btn btn-outline-dark" onClick={() => clearCart()} style={{width: 70, height: "auto"}} id="vaciarCart">Vaciar</button>:<></>}
     </>
     )
     
