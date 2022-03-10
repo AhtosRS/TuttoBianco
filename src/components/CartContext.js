@@ -28,26 +28,32 @@ const CartProvider =({children}) => {
     } 
 
     function addToCart(product, quantity){
-        setCartItem([...cartItems, {...product, quantity}]);
-        // cartItems.push(product);
-        console.log(`agregado`)
-        console.log(cartItems)
-        console.log(quantity)
+        if (cartItems.find(elemento => elemento.id === product.id)) {
+
+            console.log(` ya esta en el carro`);
+            
+        }
+        else {
+            console.log(`no esta en la bolsa`)
+            setCartItem([...cartItems, {...product, quantity}]);
+            console.log(`agregado`)
+            console.log(cartItems)
+            console.log(quantity)
+        }
     }
 
     function removeFromCart(product, cartItems){
-        console.log("entra");
         setCartItem(cartItems => cartItems.filter(elemento => elemento.id !== product.id));
     }
 
     function clearCart(){
         console.log("cart Borrado");
-        setCartItem(cartItems => cartItems.splice(0, cartItems.length));
+        setCartItem([]);
     }
 
     
 
-    return <CartContext.Provider value={{cartItems, checkCurrentCart, addToCart, cartSize, removeFromCart, clearCart}}>
+    return <CartContext.Provider value={{cartItems, removeFromCart, addToCart, cartSize, clearCart}}>
         {children}
     </CartContext.Provider>
 }
