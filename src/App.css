@@ -43,7 +43,7 @@ ul {
   margin: 10px;
   width: 154px;
   height: auto;
-  background-color: rgb(243, 241, 239);
+  background-color: white;
   
 }
 
@@ -62,10 +62,12 @@ ul {
 
 .precios {
   color: black;
+  margin: 0;
 }
 
 .description {
   color: black;
+  margin: 0 20px 0 20px;
 }
 
 .itemsContainer {
@@ -99,16 +101,21 @@ ul {
   
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   height: 100%;
   width: 100%;
   border: 2px solid black;
 }
 
-.imagenesDetail {
+/* .imagenesDetail {
   width: 30%;
   height: auto;
+} */
+
+.imagenesDetailContainer {
+  width: 30%;
+  height: 60%;
 }
 
 .detailContainer {
@@ -121,7 +128,8 @@ ul {
 }
 
 .card:hover {
-  background-color: rgba(0, 0, 0, 0.658);
+  /* background-color: rgba(0, 0, 0, 0.658); */
+  transform: scale(1.05, 1.05);
 }
 
 #offcanvasNavbar{
@@ -161,4 +169,58 @@ ul {
 
 #vaciarCart{
   align-self: center;
+}
+
+.totalContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 20px 0;
+}
+
+.navbar-nav {
+  margin: 0;
+  padding: 0;
+}
+
+.btnCounter {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  margin: 10px;
+}
+
+.borderCounter {
+  border-color: rgb(206, 197, 197);
+}
+
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cartContainerCenter{
+  width: 70%;
+  margin: 20px;
+  border: 1px solid rgb(206, 197, 197);
+} 
+
+.itemDivider {
+  margin: 10px;
+  border: 1px solid rgb(206, 197, 197);
+}
+
+.totalContainerCart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 20px 0;
 }

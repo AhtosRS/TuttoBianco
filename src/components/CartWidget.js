@@ -17,7 +17,7 @@ function CartWidget() {
             <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div className="offcanvas-body">
-            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <ul className="navbar-nav justify-content-end flex-grow-1">
         
               <Cart/>
 
@@ -25,7 +25,6 @@ function CartWidget() {
                 <a className="nav-link active" aria-current="page" href="#">productos x</a>
               </li> */}
         
-              
               
             </ul>
             

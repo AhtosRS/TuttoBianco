@@ -34,12 +34,12 @@ function ItemCount({stock, initial, onAdd, setQuantity}) {
         
         <div className="counterContainer">
             <div className="controlContainer" id="agrBolsa2">
-                <button type="button" className="btn btn-light" onClick={decrementar}>-</button>
+                <button type="button" className="btn btn-outline-dark btnCounter borderCounter" onClick={decrementar}>-</button>
                 <p className="cantidad">{contador}</p>
-                <button type="button" className="btn btn-light" onClick={incrementar}>+</button>
+                <button type="button" className="btn btn-outline-dark btnCounter borderCounter" onClick={incrementar}>+</button>
             </div>
 
-            <button type="button" className="btn btn-outline-dark" id="agrBolsa" onClick={() => onAdd()}>Agregar a la Bolsa</button>
+            <button type="button" className="btn btn-outline-dark borderCounter" id="agrBolsa" onClick={() => onAdd()}>Agregar a la Bolsa</button>
             
         </div>
         

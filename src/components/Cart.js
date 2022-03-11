@@ -3,19 +3,13 @@ import ItemCount from "./ItemCount.js";
 import CartContext from './CartContext.js'
 import { useState } from "react/cjs/react.production.min";
 import trashBin from '../imgs/bin.png';
+import {Link} from "react-router-dom"
 
 function Cart() {
 
-  const {cartItems, removeFromCart, clearCart} = useContext(CartContext);
+  const {cartItems, removeFromCart, clearCart, cartTotal} = useContext(CartContext);
 
   console.log(cartItems);
-
-  function deleteItem(item, cartItems){
-    console.log("se borrara este item")
-    removeFromCart(item, cartItems);
-    
-    
-}
 
   return(
     
@@ -25,20 +19,38 @@ function Cart() {
         return(
           <>
           <div key={products.id} className="cartProductContainer">
-               <img src={products.imgURL} style={{ width: 50, height: 50}} />
-               <div>
-                 {products.title} = ${products.price} x {products.quantity}
-               </div>
-               <div >
-               <button className="binButton" onClick={() => deleteItem(products, cartItems)}><img src={trashBin} style={{ width: 20, height: 20}} /></button>
-               </div>
-          </div>
-          
-        
-          
+              <div style={{ width: 50, height: 50}}>
+                <img src={products.imgURL}  className="imagenes" style={{position: "static"}}/>
+              </div>
 
+               <div>
+                 {products.title} = ${products.price} x {products.quantity} = ${products.price * products.quantity}
+               </div>
+
+               <div >
+               <button className="binButton" onClick={() => removeFromCart(products, cartItems)}><img src={trashBin} style={{ width: 20, height: 20}} /></button>
+               </div>
+               
+          </div>
+                            
         </>)}))}
-        {cartItems.length >= 2 ?<button type="button" className="btn btn-outline-dark" onClick={() => clearCart()} style={{width: 70, height: "auto"}} id="vaciarCart">Vaciar</button>:<></>}
+
+        
+
+        {cartItems.length >= 2 ? 
+
+              <div className="totalContainer">   
+                  Total de la bolsa: ${cartTotal}.-                           
+                  <button type="button" className="btn btn-outline-danger emptyButton" onClick={() => clearCart()} style={{width: 70, height: "auto"}} id="vaciarCart">Vaciar</button>
+              </div>
+
+          :<></>}
+
+          {cartItems.length >= 1 ? 
+              <Link to={`/cart`}>
+              <button type="button" className="btn btn-outline-dark emptyButton"  style={{width: 100, height: "auto", margin: "auto"}}>Ir a pagar</button>
+              </Link>
+          :<></>}
     </>
     )
     

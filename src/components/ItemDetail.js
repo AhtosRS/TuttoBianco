@@ -12,7 +12,10 @@ function ItemDetail({product}) {
     return(
         
             <div className="itemDetail">
-                <img src={product.imgURL} className="imagenesDetail" alt="..."></img>
+                <div className="imagenesDetailContainer">
+                   <img src={product.imgURL} className="imagenes" style={{position: "static"}} alt="..."></img> 
+                </div>
+                
                 <div className="detailContainer">
                     <h5 className="card-title">{product.title}</h5>
                     <p className="precios">${product.price}.-</p>
