@@ -1,9 +1,8 @@
 import react, {useEffect, useState} from "react";
-import ItemCount from "./ItemCount.js";
-import Item from "./Item.js";
-import { giveProducts } from './products.js';
 import ItemList from "./ItemList.js";
 import { useParams } from "react-router-dom";
+import {db} from './clientfactory.js';
+import {collection, getDocs} from 'firebase/firestore';
 
 
 function ItemListContainer() {
@@ -13,16 +12,15 @@ function ItemListContainer() {
 
     const categoria = products.filter( y => y.category == category);
 
-    
-
     useEffect(() => {
-        giveProducts
-            .then((res) => {
-                setProducts(res);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        const getDato = async() => {
+            const query = collection(db, "items");
+            const response = await getDocs(query);
+            const dataItems = response.docs.map(doc => {return {id: doc.id, ...doc.data()}});
+            setProducts(products => products = dataItems);
+            console.log(products);
+        }
+        getDato();
     }, []);
 
     return( 

@@ -1,5 +1,4 @@
 import react from "react";
-import ItemCount from "./ItemCount.js";
 import { Link } from "react-router-dom";
 
 function Item({id, title, price, imgURL}) {
@@ -21,7 +20,6 @@ function Item({id, title, price, imgURL}) {
             <div class="card-body">
                 <h5 class="card-title">{title}</h5>
                 <p class="card-text precios">${price}.-</p>
-                {/* <ItemCount stock="5" initial="1"/> */}
                 <Link to={`/item/${id}`}>
                 <button type="button" className="btn btn-outline-dark borderCounter" id="agrBolsa"> + detalles</button>
                 </Link>

@@ -38,12 +38,6 @@ const CartProvider =({children}) => {
     }
 
     
-    // function precioTotal(){
-    //     setCartTotal(cartItems.forEach(() => cartTotal += product.price));
-    //     console.log(cartTotal)
-    // }
-
-    
 
     return <CartContext.Provider value={{cartItems, removeFromCart, addToCart, cartSize, clearCart, cartTotal}}>
         {children}

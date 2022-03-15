@@ -1,6 +1,4 @@
 import react, {useState, useContext} from "react";
-import ItemCount from "./ItemCount.js";
-import {Link} from "react-router-dom"
 import CartContext from './CartContext.js'
 import trashBin from '../imgs/bin.png';
 

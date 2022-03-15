@@ -1,5 +1,4 @@
 import react from "react";
-import { CartProvider } from "./CartContext";
 import Item from './Item';
 
 function ItemList({products}) {
@@ -12,7 +11,6 @@ function ItemList({products}) {
                 <Item {...products} key={products.id}/>
             ))}
         </div>
-        
 
     )
 }

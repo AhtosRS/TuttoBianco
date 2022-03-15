@@ -1,7 +1,7 @@
 import react from "react";
 import widget from '../imgs/carrito.png';
 import Cart from "./Cart.js";
-import { CartProvider } from "./CartContext";
+
 
 function CartWidget() {
     return( 

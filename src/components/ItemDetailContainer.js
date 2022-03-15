@@ -1,11 +1,8 @@
 import react, {useEffect, useState} from "react";
-import ItemCount from "./ItemCount.js";
-import Item from "./Item.js";
-import { giveProducts } from './products.js';
-import ItemList from "./ItemList.js";
 import ItemDetail from "./ItemDetail.js";
 import { useParams } from "react-router-dom";
-import { CartProvider } from "./CartContext.js";
+import {db} from './clientfactory.js';
+import {collection, getDocs} from 'firebase/firestore';
 
 
 function ItemDetailContainer() {
@@ -14,22 +11,24 @@ function ItemDetailContainer() {
     const [loading, setLoading] = useState(true)
     let {id} = useParams();
     
+    const [filtered, setFiltered] = useState([]);
     
-    const filtered = products.find( x => x.id == id);
-    
-
     useEffect(() => {
-        giveProducts
-            .then((res) => {
-                setProducts(res);
+        const getDato = async() => {
+            const query = collection(db, "items");
+            const response = await getDocs(query);
+            const dataItems = response.docs.map(doc => {return {id: doc.id, ...doc.data()}});
+            setFiltered(filtered => filtered = dataItems.find( x => x.id == id));
+        }
+        getDato()
+            .then((dataItems) => {
+                setProducts(products => products = dataItems);
             })
             .then( () => setLoading(false))
             .catch((error) => {
                 console.log(error);
             })
     }, []);
-
-    
 
     return(
         

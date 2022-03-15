@@ -1,7 +1,5 @@
 import {useContext, useEffect} from "react";
-import ItemCount from "./ItemCount.js";
 import CartContext from './CartContext.js'
-import { useState } from "react/cjs/react.production.min";
 import trashBin from '../imgs/bin.png';
 import {Link} from "react-router-dom"
 
@@ -9,7 +7,7 @@ function Cart() {
 
   const {cartItems, removeFromCart, clearCart, cartTotal} = useContext(CartContext);
 
-  console.log(cartItems);
+  //console.log(cartItems);
 
   return(
     
