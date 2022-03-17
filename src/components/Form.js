@@ -7,9 +7,15 @@ function Form() {
 
     const {cartItems, cartTotal} = useContext(CartContext);
 
+    const cartItemsIDs = [];
+
+    cartItems.forEach(element => {
+       cartItemsIDs.push(element.id);
+    });
     
 
-    function crearOrden(){
+    const sendOrder = async(x) => {
+        x.preventDefault();
         const e = [];
         e.push(document.getElementById("nombre").value);
         e.push(document.getElementById("apellido").value);
@@ -33,20 +39,18 @@ function Form() {
                     localidad: e[7],
                     provincia: e[8],
                 },
-                items: cartItems,
+                items: cartItemsIDs,
                 date: Timestamp.fromDate(new Date()),
                 total: cartTotal,
             }
-            
-        alert(JSON.stringify(order));
-    }
-    
 
-    //const sendOrder = async() => {
-    //    const query = collection(db, 'orders');
-    //    const docRef = await addDoc(query, order);
-    //    console.log("se creo la orden de id:", docRef.id)
-    //}
+        const query = collection(db, 'orders');
+
+        const docRef = await addDoc(query, order);
+
+        alert(docRef.id);
+        
+    }
 
 
 
@@ -55,7 +59,7 @@ function Form() {
         
     
         <div>
-            <form onSubmit={() => crearOrden()}>
+            <form onSubmit={sendOrder}>
                 <div className="formContainer">
                     <div className="userData">
                         <div>
