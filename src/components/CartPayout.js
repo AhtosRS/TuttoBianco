@@ -1,16 +1,29 @@
 import react, {useState, useContext} from "react";
 import CartContext from './CartContext.js'
 import trashBin from '../imgs/bin.png';
+import {db} from './clientfactory.js';
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { useEffect } from "react/cjs/react.production.min";
+import Form from "./Form.js";
 
 function CartPayout({product}) {
     
     const {cartItems, cartTotal, removeFromCart, clearCart} = useContext(CartContext);
 
+    
+
+    
+    //const orders = collection(db, 'orders');
+
+
+
     return(
+        
         <div style={{width: "100%", height: "600px"}} className="cartContainer">
+
             <div className="cartContainerCenter">
-        <>
-        {cartItems.length === 0 ? (<p style={{color: "black"}}>Carrito vacio</p>) :
+            <>
+            {cartItems.length === 0 ? (<p style={{color: "black"}}>Carrito vacio</p>) :
             (cartItems.map((products) => {
                 return(
                   <>
@@ -28,10 +41,11 @@ function CartPayout({product}) {
                     </div>
 
                   </div>
-
+                  
                 </>)}))}
 
-            {cartItems.length >= 2 ? 
+
+            {cartItems.length >= 1 ? 
 
                 <div className="totalContainerCart">
                     <div style={{marginRight: 40}}>
@@ -40,17 +54,36 @@ function CartPayout({product}) {
                     </div>   
                     
                     <div>
-                    <button type="button" className="btn btn-outline-success emptyButton"  style={{width: 100, height: "auto"}} onClick={() => alert("simulacion de Api a mercadopago")} >pagar</button>
+
+                        <button type="button" className="btn btn-outline-success emptyButton" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{width: 100, height: "auto"}} >pagar</button>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Finalizacion de Compra</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <Form/>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                            </div>
                     </div>                           
                 </div>
 
                 
 
             :<></>}
-
             </>
         </div>
+        
     </div>
+    
+
+    
     )
     
 }

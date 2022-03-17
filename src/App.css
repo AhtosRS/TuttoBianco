@@ -224,3 +224,19 @@ ul {
   align-items: center;
   margin: 20px 0 20px 0;
 }
+
+.formContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.userData {
+  align-self: flex-start;
+  margin: 20px;
+}
+
+.locationData {
+
+}
