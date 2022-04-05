@@ -6,6 +6,7 @@ import Navigation from "./components/NavBar.js";
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import { CartProvider } from "./components/CartContext.js";
 import CartPayout from "./components/CartPayout";
+import Success from "./components/Success";
 
 function App() {
     return( 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer/>} />
           <Route path="/categories/:category" element={<ItemListContainer/>} />
           <Route path="/cart" element={<CartPayout/>} />
+          <Route path="/:orderID" element={<Success/>} />
           {/* <Route path="/categoria/:categoriaId" element={<ItemListContainer/>} /> */}
 
         </Routes>

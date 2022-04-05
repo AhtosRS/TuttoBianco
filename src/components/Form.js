@@ -1,13 +1,15 @@
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import CartContext from './CartContext.js'
 import {db} from './clientfactory.js';
 import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { Link, useNavigate } from "react-router-dom";
 
 function Form() {
 
     const {cartItems, cartTotal} = useContext(CartContext);
-
+    const navigate = useNavigate ();
     const cartItemsIDs = [];
+
 
     cartItems.forEach(element => {
        cartItemsIDs.push(element.id);
@@ -16,6 +18,7 @@ function Form() {
 
     const sendOrder = async(x) => {
         x.preventDefault();
+        x.stopPropagation();
         const e = [];
         e.push(document.getElementById("nombre").value);
         e.push(document.getElementById("apellido").value);
@@ -48,10 +51,9 @@ function Form() {
 
         const docRef = await addDoc(query, order);
 
-        alert(docRef.id);
-        
+        const orderID = docRef.id;
+        navigate(`/${orderID}`);
     }
-
 
 
 
@@ -112,7 +114,9 @@ function Form() {
                     </div>
                 </div>
 
-                <button type="submit button" value="Submit" className="btn btn-outline-dark" >Enviar Compra</button>
+                
+                <button type="submit button" value="Submit" className="btn btn-outline-dark" data-bs-dismiss="modal">Enviar Compra</button>
+                
             </form>
       </div>
     

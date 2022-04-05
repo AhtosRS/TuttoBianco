@@ -9,6 +9,7 @@ const CartProvider =({children}) => {
 
     const [cartItems, setCartItem] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
+
     const cartSize = cartItems.length;
     
 

@@ -8,7 +8,7 @@ import Form from "./Form.js";
 
 function CartPayout({product}) {
     
-    const {cartItems, cartTotal, removeFromCart, clearCart} = useContext(CartContext);
+    const {cartItems, cartTotal, removeFromCart, clearCart, orderID, condition} = useContext(CartContext);
 
     
 
@@ -71,12 +71,15 @@ function CartPayout({product}) {
                                 </div>
                               </div>
                             </div>
-                    </div>                           
+                    </div>
+
                 </div>
 
                 
 
             :<></>}
+
+             
             </>
         </div>
         
